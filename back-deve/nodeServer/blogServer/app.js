@@ -10,11 +10,13 @@ var path = require('path');
 var ejs = require('ejs');
 var app = express();
 // var users = require('./routes/users');
-var blogs = require('./routes/blogs');
+var personal = require('./routes/personal');
 var score = require('./routes/score');
 var getRankMsg = require('./routes/getRankMsg');
 var getApply = require('./routes/getApply');
 var addApply = require('./routes/addApply');
+var others = require('./routes/getOthers');
+var scholarship = require('./routes/scholarship');
 // var sentences 
 // = require('./routes/sentences');
 // var messageboard = require('./routes/messageboard');
@@ -47,11 +49,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 //     }
 //   }
 // });
-app.use('/blogs',blogs);
+app.use('/personal',personal);
 app.use('/score', score);
 app.use('/getRankMsg', getRankMsg);
 app.use('/getApply', getApply);
 app.use('/addApply', addApply);
+app.use('/others', others);
+app.use('/scholarship', scholarship);
 // app.use('/sentences', sentences);
 // app.use('/users', users);
 // app.use('/messageboard', messageboard);
@@ -62,11 +66,13 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 // app.get('/users', users);
-app.get('/blogs',blogs);
+app.get('/personal',personal);
 app.get('/score', score);
 app.get('/getRankMsg', getRankMsg);
 app.get('/getApply', getApply);
 app.get('/addApply', addApply);
+app.get('/others', others);
+app.get('/scholarship', scholarship);
 // app.get('/sentences', sentences);
 // app.get('/messageboard', messageboard);
 
